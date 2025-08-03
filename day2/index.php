@@ -68,3 +68,28 @@ echo "User 1: " . $user1->getInfo() . "<br>";
 echo "User 2: " . $user2->getInfo() . "<br>";
 echo "Login attempt:  " . $user1->login("password1234") . "<br>";
 echo "User 1 ID: " . $user1->getId() . "<br>";
+
+// ===========================================
+// 2. INHERITANCE
+// ===========================================
+
+echo "<h2>2. INHERITANCE</h2>";
+
+// Parent class
+class Animal {
+    protected $name;
+    protected $species;
+
+    public function __construct($name, $species) {
+        $this->name = $name;
+        $this->species = $species;
+    }
+
+    public function makeSound(){
+        return "{$this->name} makes a sound";
+    }
+
+    public function getInfo(){
+        return "{$this->name} is a {$this->species}";
+    }
+}
