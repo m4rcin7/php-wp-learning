@@ -93,3 +93,33 @@ class Animal {
         return "{$this->name} is a {$this->species}";
     }
 }
+
+// Child class extends parent (like JS extends)
+class Dog extends Animal {
+    private $breed;
+    
+    public function __construct($name, $breed) {
+        parent::__construct($name, "Dog"); // Call parent constructor
+        $this->breed = $breed;
+    }
+    
+    // Override parent method
+    public function makeSound() {
+        return "{$this->name} barks: Woof!";
+    }
+    
+    // Add new method
+    public function fetch() {
+        return "{$this->name} fetches the ball";
+    }
+    
+    // Override and extend parent method
+    public function getInfo() {
+        return parent::getInfo() . " of breed {$this->breed}";
+    }
+}
+
+$dog = new Dog("Burek", "German Shepherd");
+echo $dog->getInfo() . "<br>";
+echo $dog->makeSound() . "<br>";
+echo $dog->fetch() . "<br><br>";
