@@ -123,3 +123,26 @@ $dog = new Dog("Burek", "German Shepherd");
 echo $dog->getInfo() . "<br>";
 echo $dog->makeSound() . "<br>";
 echo $dog->fetch() . "<br><br>";
+
+// ===========================================
+// 3. ABSTRACT CLASSES & INTERFACES
+// ===========================================
+echo "<h2>3. ABSTRACT CLASSES & INTERFACES</h2>";
+
+// Abstract class - cannot be instantiated
+abstract class Shape {
+    protected $color;
+    
+    public function __construct($color) {
+        $this->color = $color;
+    }
+    
+    // Concrete method
+    public function getColor() {
+        return $this->color;
+    }
+    
+    // Abstract method - must be implemented by child classes
+    abstract public function calculateArea();
+    abstract public function draw();
+}
