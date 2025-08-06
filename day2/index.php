@@ -76,45 +76,54 @@ echo "User 1 ID: " . $user1->getId() . "<br>";
 echo "<h2>2. INHERITANCE</h2>";
 
 // Parent class
-class Animal {
+class Animal
+{
     protected $name;
     protected $species;
 
-    public function __construct($name, $species) {
+    public function __construct($name, $species)
+    {
         $this->name = $name;
         $this->species = $species;
     }
 
-    public function makeSound(){
+    public function makeSound()
+    {
         return "{$this->name} makes a sound";
     }
 
-    public function getInfo(){
+    public function getInfo()
+    {
         return "{$this->name} is a {$this->species}";
     }
 }
 
 // Child class extends parent (like JS extends)
-class Dog extends Animal {
+class Dog extends Animal
+{
     private $breed;
-    
-    public function __construct($name, $breed) {
+
+    public function __construct($name, $breed)
+    {
         parent::__construct($name, "Dog"); // Call parent constructor
         $this->breed = $breed;
     }
-    
+
     // Override parent method
-    public function makeSound() {
+    public function makeSound()
+    {
         return "{$this->name} barks: Woof!";
     }
-    
+
     // Add new method
-    public function fetch() {
+    public function fetch()
+    {
         return "{$this->name} fetches the ball";
     }
-    
+
     // Override and extend parent method
-    public function getInfo() {
+    public function getInfo()
+    {
         return parent::getInfo() . " of breed {$this->breed}";
     }
 }
@@ -130,19 +139,77 @@ echo $dog->fetch() . "<br><br>";
 echo "<h2>3. ABSTRACT CLASSES & INTERFACES</h2>";
 
 // Abstract class - cannot be instantiated
-abstract class Shape {
+abstract class Shape
+{
     protected $color;
-    
-    public function __construct($color) {
+
+    public function __construct($color)
+    {
         $this->color = $color;
     }
-    
+
     // Concrete method
-    public function getColor() {
+    public function getColor()
+    {
         return $this->color;
     }
-    
+
     // Abstract method - must be implemented by child classes
     abstract public function calculateArea();
     abstract public function draw();
 }
+
+// Interface - defines contract 
+interface Drawable
+{
+    public function draw();
+    public function move($x, $y);
+}
+
+interface Resizable
+{
+    public function resize($factor);
+}
+
+// Class implementing interface and extending abstract class
+class Circle extends Shape implements Drawable, Resizable
+{
+    private $radius;
+    private $x = 0;
+    private $y = 0;
+
+    public function __construct($color, $radius)
+    {
+        parent::__construct($color);
+        $this->radius = $radius;
+    }
+
+    public function calculateArea()
+    {
+        return pi() * pow($this->radius, 2);
+    }
+
+    public function draw()
+    {
+        return "Drawng {$this->color} circle at ({$this->x}, {$this->y}) with radius {$this->radius}";
+    }
+
+    public function move($x, $y)
+    {
+        $this->x = $x;
+        $this->y = $y;
+        return "Circle moved to ({$x}, {$y})";
+    }
+
+    public function resize($factor)
+    {
+        $this->radius *= $factor;
+        return "Circle resized by factor {$factor}, new radius: {$this->radius}";
+    }
+}
+
+$circle = new Circle("red", 5);
+echo "Area: " . round($circle->calculateArea(), 2) . "<br>";
+echo $circle->draw() . "<br>";
+echo $circle->move(10, 20) . "<br>";
+echo $circle->resize(1.5) . "<br><br>";
