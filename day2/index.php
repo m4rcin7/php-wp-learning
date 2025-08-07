@@ -213,3 +213,47 @@ echo "Area: " . round($circle->calculateArea(), 2) . "<br>";
 echo $circle->draw() . "<br>";
 echo $circle->move(10, 20) . "<br>";
 echo $circle->resize(1.5) . "<br><br>";
+
+// ===========================================
+// 4. TRAITS (Mixins equivalent)
+// ===========================================
+
+echo "<h2>4. TRAITS (Like JS Mixins)</h2>";
+
+// Trait - reusable code snippets 
+trait Timestampable
+{
+    private $createdAt;
+    private $updatedAt;
+
+    public function setTimestamps()
+    {
+        $this->createdAt = date('Y-m-d H:i:s');
+        $this->updatedAt = date('Y-m-d H:i:s');
+    }
+
+    public function updateTimestamp()
+    {
+        $this->updatedAt = date('Y-m-d H:i:s');
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+}
+
+trait Sluggable
+{
+    private $slug;
+
+    public function generateSlug($text)
+    {
+        $this->slug = strtoLower(str_replace(' ', '-', trim($text)));
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+}
