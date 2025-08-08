@@ -257,3 +257,36 @@ trait Sluggable
         return $this->slug;
     }
 }
+
+// Class using multiple traits
+class BlogPost
+{
+    use Timestampable, Sluggable; // Using traits
+
+    private $title;
+    private $content;
+
+    public function __construct($title, $content)
+    {
+        $this->title = $title;
+        $this->content = $content;
+        $this->setTimestamps();
+        $this->generateSlug($title);
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function update($content)
+    {
+        $this->content = $content;
+        $this->updateTimestamp();
+    }
+}
+
+$post = new BlogPost("My First PHP Post", "This is the content");
+echo "Post title: " . $post->getTitle() . "<br>";
+echo "Post slug: " . $post->getSlug() . "<br>";
+echo "Created at: " . $post->getCreatedAt() . "<br><br>";
