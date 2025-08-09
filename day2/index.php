@@ -290,3 +290,58 @@ $post = new BlogPost("My First PHP Post", "This is the content");
 echo "Post title: " . $post->getTitle() . "<br>";
 echo "Post slug: " . $post->getSlug() . "<br>";
 echo "Created at: " . $post->getCreatedAt() . "<br><br>";
+
+// ===========================================
+// 5. MAGIC METHODS
+// ===========================================
+echo "<h2>5. MAGIC METHODS (PHP Specific)</h2>";
+
+class MagicExample
+{
+    private $data = [];
+
+    // Called when accessing non-existent property
+    public function __get($name)
+    {
+        return $this->data[$name] ?? "Property '$name' not found";
+    }
+
+    // Called when setting non-existent property
+    public function __set($name, $value)
+    {
+        $this->data[$name] = $value;
+    }
+
+    // Called when checking if property exists
+    public function __isset($name)
+    {
+        return isset($this->data[$name]);
+    }
+
+    // Called when converting object to string
+    public function __toString()
+    {
+        return "MagicExample with data: " . json_encode($this->data);
+    }
+
+    // Called when object is used as function
+    public function __invoke($message)
+    {
+        return "Object called as function with: $message";
+    }
+
+    // Called when object is cloned
+    public function __clone()
+    {
+        $this->data['cloned_at'] = date('Y-m-d H:i:s');
+    }
+}
+
+$magic = new MagicExample();
+$magic->dynamicProperty = "I was set dynamically!";
+echo "Dynamic property: " . $magic->dynamicProperty . "<br>";
+echo "Object as string: " . $magic . "<br>";
+echo "Object as function: " . $magic("Hello World") . "<br>";
+
+$cloned = clone $magic;
+echo "Cloned object: " . $cloned . "<br><br>";
