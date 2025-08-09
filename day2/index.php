@@ -345,3 +345,29 @@ echo "Object as function: " . $magic("Hello World") . "<br>";
 
 $cloned = clone $magic;
 echo "Cloned object: " . $cloned . "<br><br>";
+
+// ===========================================
+// 6. COMPARISON: PHP vs JavaScript
+// ===========================================
+echo "<h2>6. KEY DIFFERENCES: PHP vs JavaScript</h2>";
+
+echo "<strong>JavaScript Class (for comparison):</strong><br>";
+echo "<pre>
+class JSUser {
+    constructor(name, email) {
+        this.name = name;        // No \$ prefix
+        this.email = email;
+        this.#password = '';     // Private field with #
+    }
+    
+    getInfo() {                  // No 'public' keyword needed
+        return `User: \${this.name}`;
+    }
+    
+    static createGuest() {       // Static method
+        return new JSUser('Guest', 'guest@test.com');
+    }
+}
+</pre>";
+
+?>
