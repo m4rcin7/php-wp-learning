@@ -1,0 +1,2 @@
+<?php 
+// connection with db
