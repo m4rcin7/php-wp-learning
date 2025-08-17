@@ -10,6 +10,16 @@
 </head>
 
 <body>
+    <header>
+        <nav>
+            <a>Home</a>
+            <a>Add Post</a>
+        </nav>
+    </header>
+
+    <main>
+        
+    </main>
 </body>
 
 </html>
