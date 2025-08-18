@@ -1,7 +1,7 @@
 <?php include 'connection.php'; ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -12,13 +12,14 @@
 <body>
     <header>
         <nav>
-            <a>Home</a>
-            <a>Add Post</a>
+            <a href="./index.php">Home</a>
+            <a href="./login.php">Log in</a>
         </nav>
     </header>
 
     <main>
-        
+        <h1>Title</h1>
+        <section>Posts</section>
     </main>
 </body>
 
