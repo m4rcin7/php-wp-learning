@@ -7,13 +7,19 @@ include 'connection.php';
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="./css/about.css" />
+    <title>About page</title>
+    <link rel="stylesheet" href="./css/about.css">
 </head>
 
 <body>
+    <?php
+    include './includes/header.php';
+    renderHeader('about');
+    ?>
 
+    <main>
+        <h1>Welcome to About Page</h1>
+    </main>
 </body>
 
 </html>
