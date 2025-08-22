@@ -8,7 +8,7 @@ include 'connection.php';
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
-    <link rel="stylesheet" href="./css/blog.css">
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 
 <body>
