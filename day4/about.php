@@ -17,7 +17,7 @@ include 'connection.php';
     renderHeader('about');
     ?>
 
-    <main>
+    <main class="container">
         <section class="hero-section">
             <h1>About Our Agency</h1>
             <p class="subtitle">Crafting Lifestyle Stories That Inspire</p>

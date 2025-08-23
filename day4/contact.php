@@ -17,7 +17,7 @@ include 'connection.php';
     renderHeader('contact');
     ?>
 
-    <main>
+    <main class="container">
         <h1>Welcome to Contact Page</h1>
     </main>
 </body>
