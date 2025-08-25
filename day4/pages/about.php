@@ -13,7 +13,7 @@ include 'connection.php';
 
 <body>
     <?php
-    include './includes/header.php';
+    require_once './includes/header.php';
     renderHeader('about');
     ?>
 

@@ -13,6 +13,11 @@ include 'connection.php';
 </head>
 
 <body>
+    <?php
+    require_once './header.php';
+    renderHeader('login');
+    ?>
+
     <div class="login-container">
         <form class="login-form">
             <h2>Login</h2>
