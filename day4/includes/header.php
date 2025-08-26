@@ -1,6 +1,12 @@
 <?php
-$basePath = '/php-wp-learning/day4';
-$currentUrl = $_SERVER["REQUEST_URI"];
+// Navigation items
+$navItems = [
+    'home' => 'Home',
+    'about' => 'About',
+    'blog' => 'Blog',
+    'contact' => 'Contact',
+    'login' => 'Login'
+];
 ?>
 
 <header>
@@ -11,11 +17,12 @@ $currentUrl = $_SERVER["REQUEST_URI"];
             </a>
         </div>
         <nav>
-            <a href="<?php echo $basePath; ?>/" <?php echo (strpos($currentUrl, $basePath . '/') === false || $currentUrl === $basePath . '/') ? 'class="active"' : ''; ?>>Home</a>
-            <a href="<?php echo $basePath; ?>/about" <?php echo (strpos($currentUrl, '/about.php') !== false) ? 'class="active"' : ''; ?>>About Us</a>
-            <a href="<?php echo $basePath; ?>/blog" <?php echo (strpos($currentUrl, '/blog') !== false) ? 'class="active"' : ''; ?>>Blog</a>
-            <a href="<?php echo $basePath; ?>/contact" <?php echo (strpos($currentUrl, '/contact') !== false) ? 'class="active"' : ''; ?>>Contact</a>
-            <a href="<?php echo $basePath; ?>/login" <?php echo (strpos($currentUrl, '/login') !== false) ? 'class="active"' : ''; ?>>Login</a>
+            <?php foreach ($navItems as $pageKey => $pageLabel): ?>
+                <a href="<?php echo $basePath; ?>/<?php echo ($pageKey === 'home') ? '' : $pageKey; ?>" 
+                   <?php echo ($currentPage === $pageKey || ($pageKey === 'home' && $currentPage === 'home')) ? 'class="active"' : ''; ?>>
+                    <?php echo $pageLabel; ?>
+                </a>
+            <?php endforeach; ?>
         </nav>
     </div>
 </header>

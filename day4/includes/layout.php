@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/header.css">
     <?php if ($page !== '404'): ?>
-        <link rel="stylesheet" href="./css/<?php echo $page; ?>.css">
+    <link rel="stylesheet" href="./css/<?php echo $page; ?>.css">
     <?php endif; ?>
 </head>
 

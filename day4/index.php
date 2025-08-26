@@ -1,63 +1,38 @@
 <?php
-$request = $_SERVER["REQUEST_URI"];
-
+// Simple PHP Router
 $basePath = "/php-wp-learning/day4";
+
+// Get current path
+$request = $_SERVER["REQUEST_URI"];
 $path = str_replace($basePath, "", $request);
-
-$path = strtok($path, '?');
-
+$path = strtok($path, '?'); // Remove query parameters  
 $path = trim($path, '/');
 
-switch ($path) {
-    case '':
-    case 'home':
-        if (file_exists('./pages/home.php')) {
-            include './pages/home.php';
-        } else {
-            echo "home.php file not found!";
-        }
-        break;
+// Debug: uncomment this line to see what path is being detected
+// echo "Debug - Current path: '$path'<br>";
 
-    case 'about':
-        if (file_exists('./pages/about.php')) {
-            include './pages/about.php';
-        } else {
-            echo "about.php file not found!";
-        }
-        break;
-
-    case 'blog':
-        if (file_exists('./pages/blog.php')) {
-            include './pages/blog.php';
-        } else {
-            echo "blog.php file not found!";
-        }
-        break;
-
-    case 'contact':
-        if (file_exists('./pages/contact.php')) {
-            include './pages/contact.php';
-        } else {
-            echo "contact.php file not found!";
-        }
-        break;
-
-    case 'login':
-        if (file_exists('./pages/login.php')) {
-            include './pages/login.php';
-        } else {
-            echo "login.php file not found!";
-        }
-        break;
-
-    default:
-        http_response_code(404);
-        if (file_exists('./404.php')) {
-            include './404.php';
-        } else {
-            echo "<h1>404 - Page Not Found</h1>";
-            echo "<p>The page '$path' was not found.</p>";
-            echo "<a href='$basePath/'>Go Home</a>";
-        }
-        break;
+// Set default page to home if empty
+if (empty($path)) {
+    $path = 'home';
 }
+
+// Define valid pages
+$validPages = ['home', 'about', 'blog', 'contact', 'login'];
+
+// Check if page exists
+if (in_array($path, $validPages)) {
+    $page = $path;
+    $title = ucfirst($path) . " - My Website";
+} else {
+    // 404 page
+    http_response_code(404);
+    $page = '404';
+    $title = '404 - Page Not Found';
+}
+
+// Set current page for navigation
+$currentPage = $page;
+
+// Load the layout
+include './includes/layout.php';
+?>
