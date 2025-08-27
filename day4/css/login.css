@@ -1,9 +1,6 @@
 @import url("global.css");
 
 /* Login page styles */
-.login-container {
-  margin: 0 auto;
-}
 
 .login-form {
   max-width: 400px;

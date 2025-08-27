@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 ?>
-<div class="login-container">
+
 <form class="login-form">
     <h2>Login</h2>
     <div class="form-group">
@@ -17,4 +17,3 @@ include 'connection.php';
         <a href="#">Register</a>
     </div>
 </form>
-</div>

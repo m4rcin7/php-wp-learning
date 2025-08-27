@@ -32,17 +32,10 @@ a {
 }
 
 a:hover {
-  color: #0056b3;
+  color: #6fa3db;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 2rem 1rem;
-  }
 }
