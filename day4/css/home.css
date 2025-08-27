@@ -1,13 +1,12 @@
 @import url("global.css");
 
 .hero {
-  background: white;
   border-radius: 20px;
   padding: 4rem 2rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   margin-bottom: 3rem;
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.95);
+  background: #000;
 }
 
 .hero h1 {
@@ -43,6 +42,7 @@
 }
 
 .cta-button:hover {
+  color: rgb(203, 139, 10);
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }

@@ -14,25 +14,16 @@ body {
   color: #333;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2,
-h3 {
-  font-weight: 600;
-  margin-bottom: 1rem;
 }
 
 a {
-  color: #007bff;
+  color: #dc5edc;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 a:hover {
-  color: #6fa3db;
+  color: #793198;
 }
 
 .container {

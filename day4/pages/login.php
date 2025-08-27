@@ -1,19 +1,15 @@
-<?php
-include 'connection.php';
-?>
-
-<form class="login-form">
+<form class="login-container">
     <h2>Login</h2>
-    <div class="form-group">
+    <div>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" placeholder="Enter you email">
     </div>
-    <div class="form-group">
+    <div>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Enter you password">
     </div>
     <button type="submit" class="btn-login">Login</button>
-    <div class="login-footer">
+    <div>
         <a href="#">Register</a>
     </div>
 </form>

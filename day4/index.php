@@ -22,7 +22,7 @@ $validPages = ['home', 'about', 'blog', 'contact', 'login'];
 // Check if page exists
 if (in_array($path, $validPages)) {
     $page = $path;
-    $title = ucfirst($path) . " - My Website";
+    $title = ucfirst($path);
 } else {
     // 404 page
     http_response_code(404);
