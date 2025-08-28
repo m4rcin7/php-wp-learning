@@ -7,12 +7,16 @@
   box-sizing: border-box;
 }
 
+:root {
+  --colorfullColor: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
   line-height: 1.6;
   color: #333;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--colorfullColor);
   min-height: 100vh;
 }
 
@@ -29,4 +33,5 @@ a:hover {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 8rem 0;
 }
