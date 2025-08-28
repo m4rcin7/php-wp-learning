@@ -18,6 +18,8 @@ body {
   color: #333;
   background: var(--colorfullColor);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -32,6 +34,8 @@ a:hover {
 
 .container {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 8rem 0;
+  flex: 1;
 }

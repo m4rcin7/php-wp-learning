@@ -13,6 +13,7 @@ $headerVersion = file_exists('./css/header.css') ? filemtime('./css/header.css')
     <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="<?php echo $basePath; ?>/css/global.css?v=<?php echo $globalVersion; ?>">
     <link rel="stylesheet" href="<?php echo $basePath; ?>/css/header.css?v=<?php echo $headerVersion; ?>">
+    <link rel="stylesheet" href="<?php echo $basePath; ?>/css/footer.css?v=<?php echo $headerVersion; ?>">
     <?php if ($page !== '404'): ?>
         <?php $pageVersion = file_exists("./css/{$page}.css") ? filemtime("./css/{$page}.css") : time(); ?>
         <link rel="stylesheet" href="<?php echo $basePath; ?>/css/<?php echo $page; ?>.css?v=<?php echo $pageVersion; ?>">

@@ -1,0 +1,58 @@
+@import url("global.css");
+
+footer {
+  background: linear-gradient(
+    90deg,
+    rgba(237, 223, 223, 1) 0%,
+    rgba(219, 219, 219, 1) 50%,
+    rgba(232, 204, 204, 1) 100%
+  );
+  backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(52, 152, 219, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3498db, #2980b9, #3498db);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 25px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.footer-container p {
+  color: #34495e;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.footer-container:hover p {
+  opacity: 1;
+  transform: translateY(-1px);
+}
