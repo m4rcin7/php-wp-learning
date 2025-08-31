@@ -10,6 +10,6 @@
     </div>
     <button type="submit" class="login-btn">Login</button>
     <div class="login-footer">
-        <a href="#">Register</a>
+        <a href="<?php echo $basePath; ?>/register">Register</a>
     </div>
 </form>
