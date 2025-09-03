@@ -17,7 +17,7 @@ if (empty($path)) {
 }
 
 // Define valid pages
-$validPages = ['home', 'about', 'blog', 'contact', 'login', 'register'];
+$validPages = ['home', 'about', 'blog', 'contact', 'login', 'register', 'dashboard'];
 
 // Check if page exists
 if (in_array($path, $validPages)) {

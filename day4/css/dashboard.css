@@ -1,0 +1,24 @@
+@import url("global.css");
+
+h2 {
+  text-align: center;
+  font-size: 37px;
+}
+
+.admin-btn-container {
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.admin-btn {
+  padding: 10px 25px;
+  width: 245px;
+  height: 50px;
+  border: none;
+  border-radius: 20px;
+}
