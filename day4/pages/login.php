@@ -1,3 +1,5 @@
+<?php include 'login_handler.php'; ?>
+
 <form action="login.php" method="post" class="login-container">
     <h2>Login</h2>
     <div class="login-group">
