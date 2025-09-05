@@ -1,9 +1,7 @@
 <?php
-    // logout.php - Simple logout handler
+    // pages/logout.php
     session_start();
     session_destroy();
-
-    // Redirect to login page
-    header("Location: login.php");
+    header("Location: $basePath/login");
     exit();
 ?>

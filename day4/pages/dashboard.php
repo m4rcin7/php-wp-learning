@@ -1,42 +1,53 @@
 <?php
-    // dashboard.php - Example of a protected page
-    require_once 'connection.php';
-    require_once 'auth_functions.php';
-    session_start();
+// Check if user is logged in
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: $basePath/login");
+    exit();
+}
 
-    // Protect this page - redirect to login if not logged in
-    requireLogin();
-
-    // Get current user data
-    $currentUser = getCurrentUser($conn);
+// Handle logout
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: $basePath/login");
+    exit();
+}
 ?>
 
-
 <div class="dashboard-container">
-    <h1>Welcome to Dashboard</h1>
-
-    <?php if ($currentUser): ?>
+    <div class="dashboard-header">
+        <h1>Welcome to Dashboard</h1>
         <div class="user-info">
-            <h2>User Information</h2>
-            <p><strong>Username:</strong> <?php echo htmlspecialchars($currentUser['username']); ?></p>
-            <p><strong>Email:</strong> <?php echo htmlspecialchars($currentUser['email']); ?></p>
-            <p><strong>Member since:</strong> <?php echo htmlspecialchars($currentUser['created_at']); ?></p>
+            <span>Hello, <?php echo $_SESSION['username']; ?>!</span>
+            <a href="?logout=1" class="logout-btn">Logout</a>
         </div>
-    <?php endif; ?>
-
-    <div class="dashboard-actions">
-        <a href="profile.php">Edit Profile</a> |
-        <a href="logout.php">Logout</a>
     </div>
 
     <div class="dashboard-content">
-        <h2>Dashboard Content</h2>
-        <p>This is a protected page that only logged-in users can see.</p>
-        <div class="admin-btn-container">
-            <button class="admin-btn">Add post</button>
-            <button class="admin-btn">View all posts</button>
-            <button class="admin-btn">Add User</button>
-            <button class="admin-btn">View all sers</button>
+        <div class="user-card">
+            <h3>Your Profile</h3>
+            <p><strong>Username:</strong> <?php echo $_SESSION['username']; ?></p>
+            <p><strong>Email:</strong> <?php echo $_SESSION['email']; ?></p>
+            <p><strong>Role:</strong> <?php echo ucfirst($_SESSION['role']); ?></p>
+        </div>
+
+        <?php if ($_SESSION['role'] == 'admin'): ?>
+        <div class="admin-section">
+            <h3>Admin Panel</h3>
+            <p>You have admin access!</p>
+            <div class="admin-buttons">
+                <button class="admin-btn">Manage Users</button>
+                <button class="admin-btn">Site Settings</button>
+                <button class="admin-btn">View Reports</button>
+            </div>
+        </div>
+        <?php endif; ?>
+
+        <div class="actions">
+            <h3>Quick Actions</h3>
+            <a href="<?php echo $basePath; ?>/blog" class="action-link">View Blog</a>
+            <a href="<?php echo $basePath; ?>/about" class="action-link">About Page</a>
+            <a href="<?php echo $basePath; ?>/contact" class="action-link">Contact</a>
         </div>
     </div>
 </div>
