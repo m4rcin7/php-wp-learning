@@ -8,7 +8,7 @@
     <div class="success-message"><?php echo $success; ?></div>
 <?php endif; ?>
 
-<form action="" method="post" class="register-container">
+<form action="register.php" method="post" class="register-container">
     <h2>Sign Up</h2>
     <div class="register-group">
         <label class="register-label" for="username">Username:</label>
