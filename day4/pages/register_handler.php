@@ -1,7 +1,7 @@
 <?php
     // pages/register_handler.php
-    require_once 'connection.php';
-
+    require_once '../connection.php';
+    $basePath = '';
     $error = '';
     $success = '';
 
@@ -31,7 +31,7 @@
 
                 // Insert new user
                 $insert_query = "INSERT INTO users (username, email, password, role, created_at) 
-                            VALUES ('$username', '$email', '$hashed_password', 'user', NOW())";
+                                VALUES ('$username', '$email', '$hashed_password', 'user', NOW())";
 
                 if ($conn->query($insert_query)) {
                     $success = 'Registration successful! You can now login.';

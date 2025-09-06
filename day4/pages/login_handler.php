@@ -1,7 +1,7 @@
 <?php
 // pages/login_handler.php
 session_start();
-require_once 'connection.php';
+require_once '../connection.php';
 
 $error = '';
 

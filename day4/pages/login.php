@@ -1,4 +1,4 @@
-<?php include 'login_handler.php'; ?>
+<?php include './login_handler.php'; ?>
 
 <?php if ($error): ?>
     <div class="error-message"><?php echo $error; ?></div>
